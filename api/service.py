@@ -22,7 +22,7 @@ class Auth(): # Define a classe responsável pela autenticação
         )
 
 # Verifica se o login foi bem-sucedido (Status 200)
-        if auth_payload.status_code == 200:
+        if auth_response.status_code == 200:
             return auth_response.json() # Retorna o corpo da resposta em formato de dicionário
 
 # Retorna um dicionário de erro caso a autenticação falhe
