@@ -1,6 +1,7 @@
 # Importa a biblioteca Streamlit
 # Streamlit é um framework para criar aplicações web com Python de forma simples
 import streamlit as st
+from genres.page import show_genres
 
 
 # Função principal da aplicação
@@ -26,7 +27,7 @@ def main():
         st.write('Inicio')
 
     if menu_option == 'Gêneros':
-        st.write('Lista de Gêneros')
+        show_genres()
 
     if menu_option == 'Atores/Atrizes':  
         st.write('Lista Atores/Atrizes')
