@@ -4,28 +4,28 @@ from st_aggrid import AgGrid
 
 
 # Lista de dicionários simulando um banco de dados de gêneros
-genres = [
-  { "id": 1, "name": "Ação" },
-  { "id": 2, "name": "Drama" },
-  { "id": 3, "name": "Comédia" }
+actors = [
+  { "id": 1, "name": "Wagner Moura" },
+  { "id": 2, "name": "Selton Mello" },
+  { "id": 3, "name": "Rodrigo Santoro" },
 ]
 
 
-def show_genres():
-    st.write('Lista de gêneros')
+def show_actors():
+    st.write('Lista de Atores/Atriz')
     # Exibe a lista de gêneros em uma tabela interativa (AgGrid)
     
     AgGrid(
-        data = pd.DataFrame(genres), # Converte a lista para DataFrame do Pandas
+        data = pd.DataFrame(actors), # Converte a lista para DataFrame do Pandas
         reload_data = True, # Garante a atualização dos dados na tela
-        key = 'genres_grid', # Chave única para o componente
+        key = 'actors_grid', # Chave única para o componente
         )
-
+    
     # Campo de entrada de texto para o nome do novo gênero
-    st.title('Cadastrar novo gênero')
-    name = st.text_input('Nome do Gênero')
+    st.title('Cadastrar novo Ator/Atriz')
+    name = st.text_input('Nome do Ator/Atriz')
    
    # Lógica executada ao clicar no botão de cadastro
     if st.button('Cadastrar'):
         # Exibe mensagem de sucesso (apenas visual neste estágio)
-        st.success(f'Gênero "{name}" cadastrado com sucesso')
+        st.success(f'Ator/Atriz "{name}" cadastrado com sucesso')

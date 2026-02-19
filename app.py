@@ -2,6 +2,9 @@
 # Streamlit é um framework para criar aplicações web com Python de forma simples
 import streamlit as st
 from genres.page import show_genres
+from actors.page import show_actors
+from movies.page import show_movies
+from reviews.page import show_reviews
 
 
 # Função principal da aplicação
@@ -30,14 +33,13 @@ def main():
         show_genres()
 
     if menu_option == 'Atores/Atrizes':  
-        st.write('Lista Atores/Atrizes')
+        show_actors()
 
     if menu_option == 'Filmes':
-        st.write('Lista de Filmes')
+        show_movies()
     
     if menu_option == 'Avaliações': 
-        st.write('Lista de Avalição')
-
+        show_reviews()
 
 # Verifica se o arquivo está sendo executado diretamente
 # Evita que o código rode automaticamente se for importado como módulo
