@@ -4,7 +4,7 @@ import requests
 class Auth(): # Define a classe responsável pela autenticação
     
     def __init__(self): # Método construtor executado ao instanciar a classe
-       self.__base_url = "..." # Define a URL base da API (atributo privado)
+       self.__base_url = "http://127.0.0.1:8000/api/v1/" # Define a URL base da API (atributo privado)
        self.__auth_url = f'{self.__base_url}authentication/token/' # Monta o endpoint específico de token
     
     def get_token(self, username, password): # Método para obter o token de acesso
