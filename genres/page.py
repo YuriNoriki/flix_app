@@ -8,7 +8,7 @@ def show_genres():
     genres_service = GenresService() # Instancia o serviço responsável pelas operações de gênero
     genres = genres_service.get_genres() # Busca os dados de gêneros através do serviço
 
-    if genres(): # Verifica se a lista de gêneros não está vazia (ajustado de genres() para genres)
+    if genres: # Verifica se a lista de gêneros não está vazia (ajustado de genres() para genres)
         st.write('Lista de gêneros')
         genres_df = pd.json_normalize(genres) # Converte a lista de dicionários/JSON para um DataFrame do Pandas
         AgGrid(  # Exibe a lista de gêneros em uma tabela interativa (AgGrid)
@@ -32,4 +32,4 @@ def show_genres():
             st.success('Gênero cadastrado com sucesso')
             st.rerun() # Recarrega a página para atualizar a tabela
         else:
-            st.error('Erro ao cadastrar o gênero. Verifique os cam')
+            st.error('Erro ao cadastrar o gênero. Verifique os campos')
