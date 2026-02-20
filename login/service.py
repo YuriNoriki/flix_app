@@ -20,3 +20,9 @@ def login(username, password): # Define a função que processa a tentativa de l
         st.session_state.token = response.get('access')
     # Reinicia o app para atualizar a interface já com o usuário logado
         st.rerun()
+
+
+def logout():
+    for key in st.session_state.key():
+        del st.session_state[key]
+    st.rerun()
