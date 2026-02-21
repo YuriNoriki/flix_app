@@ -47,4 +47,3 @@ def show_reviews():
             st.rerun()
         else:
              st.error('Error ao cadastrat o(a) Ator/Atriz, Verifique os campos.')
-
