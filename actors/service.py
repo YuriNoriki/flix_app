@@ -1,4 +1,5 @@
 from actors.repository import ActorRepository
+import streamlit as st
 
 
 class ActorService:
@@ -7,7 +8,10 @@ class ActorService:
         self.actor_repository = ActorRepository() # Instanciando minha classe
 
     def get_actors(self):
-        return self.actor_repository.get_actors() # Retornando minha lista de atores com a função 'get_actors' de 'ActorRepository'
+        if 'actors' in st.session_state:
+            return st.session_state.actors
+        actors = self.actor_repository.get_actors()
+        return actors
         
     def create_actor(self, name, birthday, nationality): # Actor existem três campos para atores
         actor = dict( # Criamos variavel que recebe um dicionario dos três campos para tratar porque repository só vai receber 'actor'
@@ -15,6 +19,8 @@ class ActorService:
             birthday= birthday,
             nationality= nationality,
         )
-        return self.actor_repository.create_actor(actor) # Criando o ator e passando o parametro tratado
+        new_actor = self.actor_repository.create_actor(actor)
+        st.session_state.actors.append(new_actor)
+        return new_actor
         
             
