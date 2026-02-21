@@ -6,12 +6,10 @@ from actors.service import ActorService
 
 
 def show_actors():
-
-    actors_service = ActorService() # Instanciando a classe ActorService
-    actors = actors_service.get_actors() # Traz a lista de todos atores
+    actor_service = ActorService() # Instanciando a classe ActorService
+    actors = actor_service.get_actors() # Traz a lista de todos atores
 
     if actors: # Se tiver algum ator,vai mostrar a tabela de atores
-       
         st.write('Lista de Atores/Atriz')
         actors_df = pd.json_normalize(actors) # Fazendo um tratamento de dados pois 'actors=chave/valor' e precisamos transformar em tabela
 
@@ -34,7 +32,7 @@ def show_actors():
         max_value=datetime.today(), # Impede selecionar qualquer dia no futuro
         format='DD/MM/YYYY', # Define como o usuário vê a data (padrão brasileiro)
     )
-    nationality_dropdown =  ['BRASIL', 'USA']
+    nationality_dropdown = ['BR', 'USA']
     nationality = st.selectbox(
         label='Nacionalidade',
         options=nationality_dropdown,
@@ -42,10 +40,10 @@ def show_actors():
 
    # Lógica executada ao clicar no botão de cadastro
     if st.button('Cadastrar'):
-        new_actor = actors_service.create_actor(
+        new_actor = actor_service.create_actor(
             name=name,
             birthday=birthday,
-            nacionality=nationality,
+            nationality=nationality,
         )
         if new_actor:
             st.rerun()
