@@ -6,7 +6,7 @@ class ReviewService:
         self.review_repository = ReviewRepository()
 
     def get_reviews(self):
-        self.review_repository.get_reviews()
+        return self.review_repository.get_reviews()
     
     def create_review(self, movie, stars, comment):
         review = dict(

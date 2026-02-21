@@ -4,6 +4,7 @@ from login.service import logout
 
 
 class ReviewRepository:
+    
     def __init__(self):
         self.__base_url = 'http://127.0.0.1:8000/api/v1/' # URL raiz da API
         self.__reviews_url = f'{self.__base_url}reviews/'
@@ -23,11 +24,11 @@ class ReviewRepository:
             return None
         raise Exception(f' Error ao obter dados da API. Status code {response.status_code}')
     
-    def create_review(self, reviews):
+    def create_review(self, review):
         response = requests.post(
             self.__reviews_url,
             headers=self.__headers,
-            data=reviews,
+            data=review,
         )
         if response.status_code == 201:
             return response.json()
