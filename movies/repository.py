@@ -44,7 +44,7 @@ class MovieRepository:
             f'{self.__movies_url}stats/',
             headers=self.__headers,
         )
-        if response.status_code == 201:
+        if response.status_code == 200:
             return response.json()
         
         if response.status_code == 401:
